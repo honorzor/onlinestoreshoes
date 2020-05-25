@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<div th:switch="${product}">
+    <h2 th:case="null">Product's not have</h2>
+    <div th:case="*">
+        <h2>Shoes in store</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>count</th>
+                <th>size</th>
+                <th>price</th>
+                <th>description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="shoes : ${product}">
+                <td th:text="${shoes.id}"></td>
+                <td th:text="${shoes.name}"></td>
+                <td th:text="${shoes.count}"></td>
+                <td th:text="${shoes.size}"></td>
+                <td th:text="${shoes.price}"></td>
+                <td th:text="${shoes.description}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/">back</a></p>
+</div>
+</body>
+</html>
